@@ -10,9 +10,11 @@
 #define PORT 10000
 int main(int argc, char const *argv[])
 {
-    Server::SocketManager manager(10000,"127.0.0.1");
+    Server::SocketManager manager(7000,"127.0.0.1");
     manager.prepareConnection();
     manager.listenForConnection();
+
+    manager.sendData("kropka");
 
     while(1)
     {

@@ -6,9 +6,9 @@
 #define AET_ABSTRACTEXCEPTION_H
 
 
-class AbstractException {
+class Exception {
 public:
-    explicit AbstractException(const char* message = "", int errorCode = 0)
+    explicit Exception(const char* message = "", int errorCode = 0)
     {
         this->message = message;
         this->errorCode = errorCode;

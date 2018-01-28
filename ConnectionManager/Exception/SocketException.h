@@ -6,11 +6,11 @@
 #define AET_SOCKETEXCEPTION_H
 
 
-#include "AbstractException.h"
+#include "Exception.h"
 
-class SocketException : public AbstractException {
+class SocketException : public Exception {
 public:
-    explicit SocketException(const char* message = "", int errorCode = 0) : AbstractException(message, errorCode){}
+    explicit SocketException(const char* message = "", int errorCode = 0) : Exception(message, errorCode){}
 };
 
 

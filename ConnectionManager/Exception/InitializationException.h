@@ -5,11 +5,11 @@
 #ifndef AET_INITIALIZATIONEXCEPTION_H
 #define AET_INITIALIZATIONEXCEPTION_H
 
-#include "AbstractException.h"
+#include "Exception.h"
 
-class InitializationException : public AbstractException {
+class InitializationException : public Exception {
 public:
-    explicit InitializationException(const char* message = "", int errorCode = 0) : AbstractException(message, errorCode){}
+    explicit InitializationException(const char* message = "", int errorCode = 0) :  Exception(message, errorCode){}
 };
 
 

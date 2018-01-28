@@ -11,6 +11,8 @@ namespace Client
 {
     class SocketManager {
     public:
+        SocketManager();
+
         void prepareConnection();
         void connectToServer(u_short port, const char *ip);
         int sendData(const char *data);

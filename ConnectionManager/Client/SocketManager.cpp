@@ -7,6 +7,7 @@
 #include "../Exception/InitializationException.h"
 #include "../Exception/SocketException.h"
 
+Client::SocketManager::SocketManager() {};
 
 void Client::SocketManager::prepareConnection() {
     try {
@@ -45,7 +46,7 @@ void Client::SocketManager::connectToServer(u_short port, const char *ip) {
 
     if(connect(this->mainSocket,(SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR )
     {
-        throw InitializationException("Cannot connect to the server");
+        throw InitializationException("Cannot connect to the server or server is unavailable");
     }
     this->connectedSocket = this->mainSocket;
 }
