@@ -5,28 +5,6 @@
 
 #include "JsonReader.h"
 
-
-std::vector<double> JsonReader::parseData(std::string data) {
-    std::vector<double> parsedData = {};
-    const char *json = data.c_str();
-    rapidjson::Document document;
-    document.Parse(json);
-
-    try {
-        assert(document.HasMember("module"));
-        assert(document["module"].IsString());
-
-        parsedData.push_back(atof(document["module"].GetString()));
-        for (rapidjson::SizeType i = 1; i < document.Size(); i++) {
-            parsedData.push_back(atof(document[i].GetString()));
-        }
-
-        return parsedData;
-    } catch (...) {
-        std::cout << "Bad data provided!";
-    }
-}
-
 std::string JsonReader::parseAction(std::string data) {
     const char *json = data.c_str();
     rapidjson::Document document;
@@ -36,6 +14,45 @@ std::string JsonReader::parseAction(std::string data) {
         assert(document["module"].IsString());
 
         return document["module"].GetString();
+    } catch (...) {
+        std::cout << "Bad data provided!";
+    }
+}
+
+std::vector<double> JsonReader::parseFirstCurrency(std::string data) {
+    std::vector<double> parsedData = {};
+    const char *json = data.c_str();
+    rapidjson::Document document;
+    document.Parse(json);
+
+    try {
+        assert(document.HasMember("data"));
+
+        for (rapidjson::SizeType i = 0; i < document["data"]["firstCurrency"].Size(); i++) {
+            parsedData.push_back(atof(document["data"]["firstCurrency"][i].GetString()));
+        }
+
+        return parsedData;
+    } catch (...) {
+        std::cout << "Bad data provided!";
+    }
+}
+
+
+std::vector<double> JsonReader::parseSecondCurrency(std::string data) {
+    std::vector<double> parsedData = {};
+    const char *json = data.c_str();
+    rapidjson::Document document;
+    document.Parse(json);
+
+    try {
+        assert(document.HasMember("data"));
+
+        for (rapidjson::SizeType i = 0; i < document["data"]["secondCurrency"].Size(); i++) {
+            parsedData.push_back(atof(document["data"]["secondCurrency"][i].GetString()));
+        }
+
+        return parsedData;
     } catch (...) {
         std::cout << "Bad data provided!";
     }

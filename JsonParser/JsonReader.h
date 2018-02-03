@@ -13,7 +13,8 @@
 class JsonReader {
 public:
     std::string parseAction(std::string);
-    std::vector<double> parseData(std::string);
+    std::vector<double> parseFirstCurrency(std::string);
+    std::vector<double> parseSecondCurrency(std::string);
 };
 
 
