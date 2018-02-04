@@ -15,7 +15,7 @@ std::vector<double> JsonReader::parseFirstCurrency(std::string data) {
     std::vector<double> parsedData = {};
     json j = json::parse(data);
 
-    parsedData = j["firstCurrency"].get<std::vector<double>>();
+    parsedData = j["data"]["firstCurrency"].get<std::vector<double>>();
 
     /*for (rapidjson::SizeType i = 0; i < document["data"]["firstCurrency"].Size(); i++) {
         parsedData.push_back(atof(document["data"]["firstCurrency"][i].GetString()));
@@ -29,7 +29,7 @@ std::vector<double> JsonReader::parseSecondCurrency(std::string data) {
     std::vector<double> parsedData = {};
     json j = json::parse(data);
 
-    parsedData = j["secondCurrency"].get<std::vector<double>>();
+    parsedData = j["data"]["secondCurrency"].get<std::vector<double>>();
 
     /*for (rapidjson::SizeType i = 0; i < document["data"]["firstCurrency"].Size(); i++) {
         parsedData.push_back(atof(document["data"]["firstCurrency"][i].GetString()));
