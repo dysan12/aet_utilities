@@ -5,8 +5,8 @@
 #include "JsonWriter.h"
 
 std::string JsonWriter::parseToJson(std::vector<double> data) {
-    json j_vector = data;
-
-    std::string response = j_vector.dump();
+    json resp;
+    resp["results"] = data;
+    std::string response = resp.dump();
     return response;
 }
