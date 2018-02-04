@@ -9,6 +9,9 @@
 #include <vector>
 #include <iostream>
 #include "../JsonLib/include/rapidjson/document.h"
+#include "Json.h"
+
+using json = nlohmann::json;
 
 class JsonReader {
 public:

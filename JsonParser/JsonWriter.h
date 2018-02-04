@@ -10,6 +10,9 @@
 #include "../JsonLib/include/rapidjson/document.h"
 #include "../JsonLib/include/rapidjson/stringbuffer.h"
 #include "../JsonLib/include/rapidjson/prettywriter.h"
+#include "Json.h"
+
+using json = nlohmann::json;
 
 class JsonWriter {
 public:
