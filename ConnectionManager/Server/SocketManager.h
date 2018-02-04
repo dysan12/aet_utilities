@@ -16,6 +16,7 @@ namespace Server
         void listenForConnection();
         int sendData(const char* data);
         std::string receiveData();
+        void destroyConnectedSocket();
     private:
         u_short port;
         const char *ip;

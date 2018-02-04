@@ -89,3 +89,7 @@ std::string Server::SocketManager::receiveData() {
 
     return responseString;
 }
+
+void Server::SocketManager::destroyConnectedSocket() {
+    this->connectedSocket = SOCKET_ERROR;
+}
